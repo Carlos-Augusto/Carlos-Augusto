@@ -2,7 +2,44 @@
 
 A structured record of engineering projects, architectural initiatives, and system implementations, enriched with industry context, domain specifications, and technology stacks.
 
----
+## Index
+
+- [1. Digital Health, Medical Devices & Regulated Systems](#1-digital-health-medical-devices--regulated-systems)
+  - [Recovery Cat - EU MDR Certified Class I Medical Device Platform](#recovery-cat---eu-mdr-certified-class-i-medical-device-platform)
+  - [Recovery Cat Architecture & Automated Threat Modeling (`rcc-architecture`)](#recovery-cat-architecture--automated-threat-modeling-rcc-architecture)
+  - [Recovery Cat Keycloak Extensions & Custom IAM Plugins (`keycloak-plugins`)](#recovery-cat-keycloak-extensions--custom-iam-plugins-keycloak-plugins)
+  - [Recovery Cat User Data Storage API (`rcc-user-data-storage-api`)](#recovery-cat-user-data-storage-api-rcc-user-data-storage-api)
+  - [German COVID-19 Digital Vaccination Certificate (`CovPass` / `EU DCC`)](#german-covid-19-digital-vaccination-certificate-covpass--eu-dcc)
+- [2. Distributed Systems, Blockchain & Data Integrity Platforms](#2-distributed-systems-blockchain--data-integrity-platforms)
+  - [Ubirch Attestation Platform](#ubirch-attestation-platform)
+  - [Ubirch Identity Service (`ubirch-id-service`)](#ubirch-identity-service-ubirch-id-service)
+  - [Ubirch Token Manager (`ubirch-token-manager`)](#ubirch-token-manager-ubirch-token-manager)
+  - [Ubirch Blockchain Service (`ubirch-blockchain-service`)](#ubirch-blockchain-service-ubirch-blockchain-service)
+  - [Ubirch Accounting & Metering Service (`ubirch-accounting-service`)](#ubirch-accounting--metering-service-ubirch-accounting-service)
+  - [Ubirch Key Service Migration Pipeline (`ubirch-key-service-migration`)](#ubirch-key-service-migration-pipeline-ubirch-key-service-migration)
+  - [Ubirch Point of Certification Agent (`ubirch-poc-agent`)](#ubirch-point-of-certification-agent-ubirch-poc-agent)
+  - [Ubirch Kafka Express - High-Throughput Streaming & Microservice Abstraction Framework](#ubirch-kafka-express---high-throughput-streaming--microservice-abstraction-framework)
+  - [`KYCT` (Know Your Customer Token) - Decentralized Identity Protocol](#kyct-know-your-customer-token---decentralized-identity-protocol)
+  - [Catalina - Ubirch Trust Platform Client & Verification Suite](#catalina---ubirch-trust-platform-client--verification-suite)
+  - [Catalina Slack App - Verifiable Message Timestamping](#catalina-slack-app---verifiable-message-timestamping)
+  - [Engineering Technical Debt & Quality Governance Framework](#engineering-technical-debt--quality-governance-framework)
+- [3. E-Commerce, SaaS & Marketing Automation Platforms](#3-e-commerce-saas--marketing-automation-platforms)
+  - [pluriME Multi-Tenant Website-Builder Platform](#plurime-multi-tenant-website-builder-platform)
+  - [pluriWow E-Commerce & Checkout Suite](#pluriwow-e-commerce--checkout-suite)
+  - [Instream Multi-Channel Marketing Automation](#instream-multi-channel-marketing-automation)
+- [4. Enterprise ERP, Open-Source & Integration Solutions](#4-enterprise-erp-open-source--integration-solutions)
+  - [Simple S.A. Enterprise Invoicing & Data Integration Solution](#simple-sa-enterprise-invoicing--data-integration-solution)
+  - [Aminco Legacy ERP Modernization & Migration](#aminco-legacy-erp-modernization--migration)
+  - [Ecuadorian University ERP & Official Localization of Ecuador (`LEC`)](#ecuadorian-university-erp--official-localization-of-ecuador-lec)
+  - [`iDempiere` Core Contributions & Regional Localizations](#idempiere-core-contributions--regional-localizations)
+- [5. Applied AI, Deep Learning & Security Intelligence](#5-applied-ai-deep-learning--security-intelligence)
+  - [Session Behavioral Anomaly Detection System](#session-behavioral-anomaly-detection-system)
+- [6. Developer Tooling, CI/CD & Deployment Management](#6-developer-tooling-cicd--deployment-management)
+  - [Cherry Change - Deployment Lifecycle & Release Management Platform](#cherry-change---deployment-lifecycle--release-management-platform)
+  - [Ubirch Scala Client SDK (`ubirch-client-scala`)](#ubirch-scala-client-sdk-ubirch-client-scala)
+  - [Ubirch Kafka Service Template (`ubirch-kafka-service-template`)](#ubirch-kafka-service-template-ubirch-kafka-service-template)
+  - [ZooKeeper Service Discovery & Leadership Election Framework (`zookeeper-service-discovery`)](#zookeeper-service-discovery--leadership-election-framework-zookeeper-service-discovery)
+  - [Distributed Attestation Load Testing & Simulation Engine (`load-tests-sim`)](#distributed-attestation-load-testing--simulation-engine-load-tests-sim)
 
 ## 1. Digital Health, Medical Devices & Regulated Systems
 
@@ -56,8 +93,6 @@ A structured record of engineering projects, architectural initiatives, and syst
 * **Key Deliverables & Practical Impact:**
   * **Nationwide Public Health Backbone:** Delivered core backend streaming and signing components for the official German Vaccination Proof (*Digitales Impfzertifikat*), integrating thousands of pharmacies (DAV), vaccination centres, and medical practices into the EU DCC trust gateway.
   * **High-Throughput Cryptographic Scalability:** Engineered high-availability event-driven streaming pipelines using `Scala`, `Akka Streams`, and `Kafka` capable of processing, signing, and mathematically validating millions of verifiable health certificates daily under peak national load.
-
----
 
 ## 2. Distributed Systems, Blockchain & Data Integrity Platforms
 
@@ -173,8 +208,6 @@ A structured record of engineering projects, architectural initiatives, and syst
   * **6-Dimension Evaluation Framework:** Designed and operationalized a structured technical debt assessment matrix across Security, Compliance, Performance, Modifiability, Testability, and Usability/DX.
   * **Sustainable Codebase Modernization:** Guided multi-year codebase refactoring programs, maintaining an 80/20 delivery-to-refactoring balance that continuously reduced vulnerability surface area without compromising product velocity.
 
----
-
 ## 3. E-Commerce, SaaS & Marketing Automation Platforms
 
 ### pluriME Multi-Tenant Website-Builder Platform
@@ -201,8 +234,6 @@ A structured record of engineering projects, architectural initiatives, and syst
 * **Key Deliverables & Practical Impact:**
   * **Unified Omnichannel Broadcast Engine:** Engineered a marketing automation suite (HubSpot alternative) allowing cross-channel composition, scheduling, and multi-network broadcasting across social platforms, email, and SMS.
   * **Real-Time Conversion Analytics:** Developed real-time Call-To-Action (`CTA`) tracking engines and conversion telemetry to provide actionable ROI metrics for marketing campaigns.
-
----
 
 ## 4. Enterprise ERP, Open-Source & Integration Solutions
 
@@ -238,8 +269,6 @@ A structured record of engineering projects, architectural initiatives, and syst
   * **Internationalization & LCO:** Contributed to the official Localization of Colombia (`LCO`) and translated the complete `iDempiere` Setup Wizard into Spanish.
   * **Global Financial Reconciliations:** Engineered customized accounting, reconciliation, and financial reporting modules for international enterprises across Colombia and the USA (including `TrekGlobal` client ecosystems).
 
----
-
 ## 5. Applied AI, Deep Learning & Security Intelligence
 
 ### Session Behavioral Anomaly Detection System
@@ -251,8 +280,6 @@ A structured record of engineering projects, architectural initiatives, and syst
   * **Symmetric Deep Architecture & Linear Output:** Designed a 5-layer symmetric network (`Input 11 -> 32 -> 16 -> Latent 6 -> 16 -> 32 -> Output 11`) with unbounded linear output to maximize reconstruction error penalties on extreme behavioral outliers.
   * **Feature Preprocessing & Model Segregation:** Implemented sine/cosine cyclic encodings for temporal signals (`Hour`, `Day of Week`), `log(1+x)` compression for geolocation distance, and segregated models for standard vs. privileged user workloads.
   * **Explainability & Low-Latency Deployment:** Integrated per-feature reconstruction error attribution ranking root-cause anomaly signals for incident review; exported artifacts to ONNX for sub-100ms inference in JVM microservice pipelines.
-
----
 
 ## 6. Developer Tooling, CI/CD & Deployment Management
 
