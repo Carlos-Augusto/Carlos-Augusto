@@ -2,7 +2,7 @@
 
 **Systems Engineer & Software Architect** · Berlin, Germany 🇩🇪
 
-Systems Engineer and Software Architect with extensive expertise in building resilient, high-scale backend systems — from EU-wide digital health infrastructure (COVID vaccination certificates) to certified medical devices under EU MDR.
+Systems Engineer and Software Architect with extensive expertise in building resilient, high-scale backend systems - from EU-wide digital health infrastructure (COVID vaccination certificates) to certified medical devices under EU MDR.
 
 Explore my complete [Projects & Technical Initiatives Portfolio](projects.md).
 
