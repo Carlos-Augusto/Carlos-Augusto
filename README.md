@@ -2,22 +2,19 @@
 
 **Systems Engineer & Software Architect** · Berlin, Germany 🇩🇪
 
-Systems Engineer and Software Architect with 13+ years of experience building secure, high-scale backend systems — from EU-wide digital health infrastructure (COVID vaccination certificates) to certified medical devices under EU MDR.
+Systems Engineer and Software Architect with extensive expertise in building resilient, high-scale backend systems — from EU-wide digital health infrastructure (COVID vaccination certificates) to certified medical devices under EU MDR.
 
 ---
 
-### 🔭 What I'm working on
-
-- **Head of Development** at [Recovery Cat GmbH](https://recoverycat.de) — building a certified Class I Medical Device (EU MDR 2017/745), owning architecture, security threat modeling, and engineering team leadership.
-
 ### 🚀 Previously
 
+- **Head of Development** at [Recovery Cat GmbH](https://recoverycat.de) — built a certified Class I Medical Device (EU MDR 2017/745), owned architecture, security threat modeling, and engineering team leadership.
 - **Lead Software Engineer** at [Ubirch GmbH](https://ubirch.com) ([GitHub](https://github.com/ubirch)) — delivered backend components for the **German Vaccination Proof (DCC)**, built blockchain attestation platforms (IOTA, Ethereum), and designed **KYCT**, a Web3 KYC solution on ERC-721 NFTs.
 - **Senior Software Engineer** at **pluriME International** — built website-builder and e-commerce platforms, marketing automation tools, and RESTful API systems.
 
 ---
 
-### 🛠️ Tech Stack
+### 🛠 Tech Stack
 
 **Languages:** Scala · Java · TypeScript · Go · Python · Ruby · Bash
 
@@ -36,8 +33,8 @@ Systems Engineer and Software Architect with 13+ years of experience building se
 - 🧘 Zen meditation
 - 📚 Reading & Languages
 - 🛼 Inline skating
-- 🎤 Former Functional Programming Meetup Organizer (Scala, 2017–2022)
-- 🏛️ Former ACM Software Engineering Interest Group Leader
+- 🎤 Former Functional Programming Meetup Organizer
+- 🏛 Former ACM Software Engineering Interest Group Leader
 
 ---
 
