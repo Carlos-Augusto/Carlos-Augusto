@@ -5,7 +5,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 ## Index
 
 - [1. Digital Health, Medical Devices & Regulated Systems](#1-digital-health-medical-devices--regulated-systems)
-  - [Recovery Cat - EU MDR Certified Class I Medical Device Platform](#recovery-cat---eu-mdr-certified-class-i-medical-device-platform)
+  - [Recovery Cat · EU MDR Certified Class I Medical Device Platform](#recovery-cat--eu-mdr-certified-class-i-medical-device-platform)
   - [Recovery Cat Architecture & Automated Threat Modeling (`rcc-architecture`)](#recovery-cat-architecture--automated-threat-modeling-rcc-architecture)
   - [Recovery Cat Keycloak Extensions & Custom IAM Plugins (`keycloak-plugins`)](#recovery-cat-keycloak-extensions--custom-iam-plugins-keycloak-plugins)
   - [Recovery Cat User Data Storage API (`rcc-user-data-storage-api`)](#recovery-cat-user-data-storage-api-rcc-user-data-storage-api)
@@ -18,10 +18,10 @@ A structured record of engineering projects, architectural initiatives, and syst
   - [Ubirch Accounting & Metering Service (`ubirch-accounting-service`)](#ubirch-accounting--metering-service-ubirch-accounting-service)
   - [Ubirch Key Service Migration Pipeline (`ubirch-key-service-migration`)](#ubirch-key-service-migration-pipeline-ubirch-key-service-migration)
   - [Ubirch Point of Certification Agent (`ubirch-poc-agent`)](#ubirch-point-of-certification-agent-ubirch-poc-agent)
-  - [Ubirch Kafka Express - High-Throughput Streaming & Microservice Abstraction Framework](#ubirch-kafka-express---high-throughput-streaming--microservice-abstraction-framework)
-  - [`KYCT` (Know Your Customer Token) - Decentralized Identity Protocol](#kyct-know-your-customer-token---decentralized-identity-protocol)
-  - [Catalina - Ubirch Trust Platform Client & Verification Suite](#catalina---ubirch-trust-platform-client--verification-suite)
-  - [Catalina Slack App - Verifiable Message Timestamping](#catalina-slack-app---verifiable-message-timestamping)
+  - [Ubirch Kafka Express · High-Throughput Streaming & Microservice Abstraction Framework](#ubirch-kafka-express--high-throughput-streaming--microservice-abstraction-framework)
+  - [`KYCT` (Know Your Customer Token) · Decentralized Identity Protocol](#kyct-know-your-customer-token--decentralized-identity-protocol)
+  - [Catalina · Ubirch Trust Platform Client & Verification Suite](#catalina--ubirch-trust-platform-client--verification-suite)
+  - [Catalina Slack App · Verifiable Message Timestamping](#catalina-slack-app--verifiable-message-timestamping)
   - [Engineering Technical Debt & Quality Governance Framework](#engineering-technical-debt--quality-governance-framework)
 - [3. E-Commerce, SaaS & Marketing Automation Platforms](#3-e-commerce-saas--marketing-automation-platforms)
   - [pluriME Multi-Tenant Website-Builder Platform](#plurime-multi-tenant-website-builder-platform)
@@ -35,7 +35,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 - [5. Applied AI, Deep Learning & Security Intelligence](#5-applied-ai-deep-learning--security-intelligence)
   - [Session Behavioral Anomaly Detection System](#session-behavioral-anomaly-detection-system)
 - [6. Developer Tooling, CI/CD & Deployment Management](#6-developer-tooling-cicd--deployment-management)
-  - [Cherry Change - Deployment Lifecycle & Release Management Platform](#cherry-change---deployment-lifecycle--release-management-platform)
+  - [Cherry Change · Deployment Lifecycle & Release Management Platform](#cherry-change--deployment-lifecycle--release-management-platform)
   - [Ubirch Scala Client SDK (`ubirch-client-scala`)](#ubirch-scala-client-sdk-ubirch-client-scala)
   - [Ubirch Kafka Service Template (`ubirch-kafka-service-template`)](#ubirch-kafka-service-template-ubirch-kafka-service-template)
   - [ZooKeeper Service Discovery & Leadership Election Framework (`zookeeper-service-discovery`)](#zookeeper-service-discovery--leadership-election-framework-zookeeper-service-discovery)
@@ -43,16 +43,19 @@ A structured record of engineering projects, architectural initiatives, and syst
 
 ## 1. Digital Health, Medical Devices & Regulated Systems
 
-### Recovery Cat - EU MDR Certified Class I Medical Device Platform
+### Recovery Cat · EU MDR Certified Class I Medical Device Platform
 * **Role & Organization:** Head of Development · Recovery Cat GmbH (Berlin, Germany)
 * **Domain & Ecosystem:** Digital Mental Health, Measurement-Based Care (MBC), Remote Patient Monitoring (RPM), Charité – Universitätsmedizin Berlin spin-off, Berlin Institute of Health (BIH) Digital Health Accelerator, Techniker Krankenkasse (TK) statutory reimbursement contract (later acquired by Resilience Care).
-* **Technologies:** EU MDR 2017/745 (Class I SaMD), WebRTC, Keycloak (OIDC/OAuth2), Progressive Web Apps (PWA), Docker, GitLab CI/CD, Threagile (Threat Modeling), Trivy (Vulnerability Scanning), Scrum.
+* **Technologies:** EU MDR 2017/745 (Class I SaMD), WebRTC, Keycloak (OIDC/OAuth2), Progressive Web Apps (PWA), Docker, GitLab CI/CD, Threagile (Threat Modeling), Trivy (Vulnerability Scanning), Cross-Browser E2E Testing, Scrum.
 * **Key Deliverables & Practical Impact:**
   * **SaMD Architecture & Regulatory Threat Modeling:** Owned the end-to-end software architecture and regulatory security posture for an EU MDR 2017/745 certified Class I Medical Device, safeguarding highly sensitive psychiatric patient data across inpatient and outpatient care pathways deployed in ~20 German hospital networks and psychiatric clinics.
   * **WebRTC Signaling Engine Overhaul:** Rebuilt the real-time WebRTC signaling architecture from the ground up, eliminating peer connection dropouts and 100% of communication support incidents between Healthcare Professionals (HCPs) and patients.
   * **Zero-Loss Patient Data Migration:** Eliminated critical data loss vulnerabilities inherent to client-side PWA browser caches by engineering an automated, encrypted backend migration pipeline preserving full longitudinal clinical histories.
   * **Enterprise IAM Integration (Keycloak):** Architected and deployed a multi-tenant, custom-branded `Keycloak` Identity & Access Management (OIDC/OAuth2) infrastructure, migrating unauthenticated PWA endpoints to role-based access control (RBAC) with granular session governance.
   * **Automated DevSecOps Pipeline:** Embedded `Threagile` automated threat modeling and `Trivy` container scanning directly into GitLab CI/CD pipelines to ensure continuous regulatory compliance and risk mitigation across every build artifact.
+  * **Cross-Browser E2E Testing in CI:** Added end-to-end test runs across multiple browsers to the GitLab CI pipeline, so every change to the patient and clinician PWAs was checked in each supported browser before release.
+  * **Unit Test Coverage:** Raised unit test coverage from 10% to between 71% and 90%, depending on the project.
+  * **Release Frequency:** Increased production deployments from 3 to 10 or more per year.
 
 ### Recovery Cat Architecture & Automated Threat Modeling (`rcc-architecture`)
 * **Role & Organization:** Head of Development / Software Architect · Recovery Cat GmbH (Berlin, Germany)
@@ -60,7 +63,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 * **Technologies:** Threagile (Code-as-Threat-Model, Go/YAML), Docker, GitLab CI/CD, Scaleway Kapsule (Kubernetes), Hetzner Bare Metal / Cloud, Traefik, Keycloak (OIDC), PostgreSQL, WebRTC / STUN, Python (`validate_yaml.py`).
 * **Key Deliverables & Practical Impact:**
   * **Executable Threat Model & Architecture-as-Code:** Formulated and maintained the comprehensive, code-driven architecture specification and threat model (`threagile-rcc-model.yaml`), mapping 34 technical assets, 16 data assets, 13 trust boundaries, and 44 communication links into automated compliance artifacts (`report.pdf`, `risks.json`, `data-flow-diagram.png`).
-  * **Automated CI/CD Risk Quantification:** Integrated containerized `Threagile` execution into `.gitlab-ci.yml` pipelines, automatically quantifying 300 STRIDE/ASVS security risks to prevent security regressions during continuous delivery.
+  * **Infrastructure-Based Risk Modeling in CI/CD:** Modeled 300 STRIDE/ASVS security risks against the infrastructure we had actually built, and ran containerized `Threagile` in `.gitlab-ci.yml` pipelines. This gave the team an organized process to assess, prioritize and track each risk, and caught security regressions during continuous delivery.
   * **Multi-Cloud Medical Infrastructure Architecture:** Engineered the operational deployment topology spanning Scaleway Kapsule Kubernetes (`prod-apps`, `monitoring`, `flux-system` namespaces), dedicated managed PostgreSQL clusters, Hetzner VM infrastructure (STUN signaling, GitLab CI runners), and Jointech Bare Metal hosts (Zammad, Matomo).
   * **Zero-Knowledge Privacy & Real-Time Signaling Topology:** Architected the client-side data isolation model featuring browser-local patient storage, QR-code AES cryptographic negotiation, and hybrid WebRTC DataChannel / WebSocket fallback transmission preventing unauthorized access to psychiatric records.
 
@@ -163,7 +166,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   * **Dual-Target Dispatching & Orchestration:** Built resilient request distribution pipelines using `STTP` and `AsyncHttpClient` multiplexing certification workloads across local UPP Signers and remote Certify-APIs with automated fallback and error buffering.
   * **High-Availability Local Ingestion:** Designed lightweight, containerized edge deployment profiles ensuring reliable Base45 payload encoding and certificate issuance in low-connectivity or security-restricted hospital/testing center environments.
 
-### Ubirch Kafka Express - High-Throughput Streaming & Microservice Abstraction Framework
+### Ubirch Kafka Express · High-Throughput Streaming & Microservice Abstraction Framework
 * **Role & Organization:** Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 * **Domain & Ecosystem:** Event-Driven Architecture, High-Throughput Stream Processing, JVM Microservices, Developer Experience & Framework Tooling.
 * **Technologies:** Scala, Apache Kafka, Prometheus Metrics (`WithMetrics`), JVM Concurrency (Futures / Actors), Maven/SBT (`com.ubirch:ubirch-kafka-express`), Graceful Shutdown Hooks.
@@ -173,7 +176,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   * **Two-Tier Exception Escalation & Fault Isolation:** Implemented a two-floor exception management architecture allowing fine-grained isolation between transient record-level processing failures and fatal partition/broker errors requiring escalation.
   * **Embedded Prometheus Telemetry & Graceful Lifecycle Hooks:** Integrated `WithMetrics` trait for real-time Prometheus throughput and lag monitoring, alongside automated JVM shutdown hooks (`WithConsumerShutdownHook`, `WithProducerShutdownHook`) ensuring zero-data-loss draining during redeployments.
 
-### `KYCT` (Know Your Customer Token) - Decentralized Identity Protocol
+### `KYCT` (Know Your Customer Token) · Decentralized Identity Protocol
 * **Role & Organization:** Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 * **Domain & Ecosystem:** Web3, Self-Sovereign Identity, Privacy-Preserving Compliance, Deutsche Telekom & T-Mobile US Innovation Ecosystem.
 * **Technologies:** Solidity, `ERC-721` Smart Contracts, Ethereum, Polygon, Zero-Knowledge / Non-PII Verification Patterns.
@@ -182,7 +185,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   * **On-Chain Compliance Tokenization:** Conceptualized and built `KYCT`, an on-chain identity verification mechanism utilizing `ERC-721` non-fungible tokens on Ethereum and Polygon.
   * **Zero-PII Regulatory Proofs:** Enabled decentralized finance (DeFi) protocols and Web3 dApps to cryptographically verify user KYC compliance and accreditation without exposing underlying Personally Identifiable Information (PII).
 
-### Catalina - Ubirch Trust Platform Client & Verification Suite
+### Catalina · Ubirch Trust Platform Client & Verification Suite
 * **Role & Organization:** Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 * **Domain & Ecosystem:** Cryptographic Data Integrity, Verifiable Data Auditing, Trust-as-a-Service Cloud APIs.
 * **Technologies:** Java, Scala, REST APIs, Cryptographic Micro-Certificates, Merkle Tree Anchoring, Public Ledgers.
@@ -191,7 +194,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   * **Trust-as-a-Service Verification Engine:** Built verification tooling that queries public ledger anchors to mathematically validate micro-certificate integrity, guaranteeing tamper-proof, immutable timestamps and provable existence.
   * **Client Integration & Workflow Automation:** Streamlined integration pipelines for third-party systems to embed cryptographic attestation and lineage tracking directly into upstream data ingestion workflows.
 
-### Catalina Slack App - Verifiable Message Timestamping
+### Catalina Slack App · Verifiable Message Timestamping
 * **Role & Organization:** Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 * **Domain & Ecosystem:** ChatOps, Enterprise Communication Integrity, Immutable Audit Trails.
 * **Technologies:** Slack API / Bot Framework, Webhooks, RESTful Integrations, Cryptographic Hashing, Ubirch Trust Service.
@@ -283,7 +286,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 
 ## 6. Developer Tooling, CI/CD & Deployment Management
 
-### Cherry Change - Deployment Lifecycle & Release Management Platform
+### Cherry Change · Deployment Lifecycle & Release Management Platform
 * **Role & Organization:** Software Architect & Lead Developer
 * **Domain & Ecosystem:** DevOps Tooling, Release Governance, Deployment Lifecycle Tracking & Team Management.
 * **Technologies:** Ruby on Rails, Sidekiq, Redis, PostgreSQL, Docker, Docker Compose, Background Job Processing, Charting & Analytics Dashboards.
