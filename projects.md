@@ -83,7 +83,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 * **Domain & Ecosystem:** Regulated Medical Device Backend, Encrypted Client-Side Data Storage & Backup, Multi-Tenant OIDC RBAC, SOUP Regulatory BOM Compliance (IEC 62304 / EU MDR).
 * **Technologies:** Java 21, Quarkus (REST Jackson, Hibernate ORM Panache, OIDC Multi-Tenant, SmallRye Fault Tolerance, SmallRye Health, Micrometer Prometheus, Scheduler), PostgreSQL 17 / JSONB, Liquibase, MapStruct, Hypersistence Utils (TSID, JSONB), NetworkNT JSON Schema Validator, Lombok, Spotless, PMD, JaCoCo, REST-Assured, Docker Jib / Harbor Registry, GitLab CI/CD.
 * **Key Deliverables & Practical Impact:**
-  * **Zero-Knowledge Medical Data Persistence & JSONB Schema Enforcement:** Architected a high-performance, compliant REST backend for storing and synchronizing encrypted clinical client state across 12 distinct health data types (`rcc-settings`, `rcc-journal`, `rcc-custom-symptom-checks`, `rcc-custom-questions`, `rcc-hcp-backup`, `rcc-pat-backup`, `metadata`) using PostgreSQL `jsonb` with Hypersistence TSID (Time-Sorted Unique Identifier) primary keys and NetworkNT JSON Schema pre-validation.
+  * **Zero-Knowledge Medical Data Persistence & JSONB Schema Enforcement:** Architected a high-performance, compliant REST backend for storing and synchronizing encrypted clinical client state across 12 distinct health data types using PostgreSQL `jsonb` with Hypersistence TSID (Time-Sorted Unique Identifier) primary keys and NetworkNT JSON Schema pre-validation.
   * **Multi-Tenant JWT Issuer Resolution (`MultiTenantMergerTenantResolver`):** Implemented custom Quarkus OIDC tenant resolution interceptors inspecting JWT issuer payloads across multi-realm Keycloak topologies (`rcc-hcp` clinical realm and `rcc-pat` patient realm), establishing unified security contexts with fine-grained HTTP RBAC policies (`pat-read`, `pat-create`, `pat-destroy`, `hcp-read`, `hcp-create`, `hcp-destroy`, `super-admin`).
   * **API-Key Protected Insurance Gateway & Cross-Service Federation:** Engineered high-security internal integration endpoints (`/v1/insurances`) with custom JAX-RS `ApiKeyRequestFilter` authentication, serving active German health insurance catalogs directly to the Keycloak IAM SPI plugin ecosystem.
   * **Automated SOUP / SBOM Regulatory Compliance Generator (`generate-soup.sh`):** Formulated automated Software of Unknown Provenance (SOUP) extraction tooling parsing Gradle dependency trees for IEC 62304 / EU MDR Class I medical device technical file audits and post-market surveillance.
@@ -94,8 +94,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 * **Domain & Ecosystem:** National Public Health Infrastructure, EU Digital COVID Certificate (`EU DCC`), German Federal Ministry of Health (BMG) consortium partnership with IBM and Bechtle/GovOS.
 * **Technologies:** Scala, Akka (Actors, HTTP, Streams), Apache Kafka, Apache Cassandra, PostgreSQL, Cryptographic Signing (ECDSA / Ed25519), High-Throughput REST APIs.
 * **Key Deliverables & Practical Impact:**
-  * **Nationwide Public Health Backbone:** Delivered core backend streaming and signing components for the official German Vaccination Proof (*Digitales Impfzertifikat*), integrating thousands of pharmacies (DAV), vaccination centres, and medical practices into the EU DCC trust gateway.
-  * **High-Throughput Cryptographic Scalability:** Engineered high-availability event-driven streaming pipelines using `Scala`, `Akka Streams`, and `Kafka` capable of processing, signing, and mathematically validating millions of verifiable health certificates daily under peak national load.
+  * **Nationwide Public Health Backbone:** Delivered core backend streaming and signing components for the official German Vaccination Proof (*Digitales Impfzertifikat*), integrating thousands of pharmacies (DAV), vaccination centres, and medical practices into the EU DCC trust gateway. More than 250 Million certificates were issued.
 
 ## 2. Distributed Systems, Blockchain & Data Integrity Platforms
 
@@ -106,14 +105,14 @@ A structured record of engineering projects, architectural initiatives, and syst
 * **Key Deliverables & Practical Impact:**
   * **Niomon Event-Driven Ingestion Pipeline:** Co-developed and maintained the `Niomon` message ingestion microservices (decoding, signature verification, device certificate validation, and high-throughput serialization) handling continuous streams of cryptographic data packets.
   * **Merkle Tree Event Log & Multi-Chain Anchoring:** Engineered the `Event Log System` that aggregates cryptographic hashes into linked Merkle trees and periodically anchors root hashes into public ledgers (Ethereum, IOTA), generating tamper-proof timestamps and verifiable proofs of existence.
-  * **Intelligent Certificate Storage:** Designed a multi-tier storage engine leveraging `Cassandra`, `JanusGraph`, and `Redis` for sub-second verification and cryptographic lineage tracing across millions of connected devices.
+  * **Intelligent Certificate Storage:** Designed a multi-tier storage engine leveraging `Cassandra`, `JanusGraph`, and `Redis` for sub-second verification and cryptographic lineage tracing across thousands of connected devices.
 
 ### Ubirch Identity Service (`ubirch-id-service`)
 * **Role & Organization:** Lead / Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
 * **Domain & Ecosystem:** Public Key Infrastructure (PKI), Decentralized Identity (DID), Cryptographic Key Lifecycle & Device Attestation.
 * **Technologies:** Scala, Monix (`Task`), Scalatra, Apache Cassandra (`quill-cassandra-monix`), Apache Kafka (`ubirch-kafka-express`), Ed25519, ECDSA, X.509 Certificates, Docker, Prometheus.
 * **Key Deliverables & Practical Impact:**
-  * **Asynchronous High-Throughput PKI Core:** Architected and developed the central identity management microservice handling public key registration, verification, and cryptographic lifecycle management for millions of IoT devices and identity anchors using `Monix Task` and `Scalatra`.
+  * **Asynchronous High-Throughput PKI Core:** Architected and developed the central identity management microservice handling public key registration, verification, and cryptographic lifecycle management for thousands of IoT devices and identity anchors using `Monix Task` and `Scalatra`.
   * **Multi-Algorithm Cryptographic Key Storage:** Engineered high-performance persistence and retrieval pipelines on `Apache Cassandra` via `Quill Cassandra Monix`, supporting Ed25519 and ECDSA public key algorithms, certificate chains, and key revocation lists.
   * **Event-Driven Identity Event Streaming:** Integrated bidirectional `Apache Kafka` event streaming using `ubirch-kafka-express` for instant pub/sub notification of key lifecycle transitions (activation, expiration, and invalidation) across all downstream verification services.
   * **Zero-Trust Identity Verification API:** Designed RESTful and streaming verification endpoints enforcing cryptographic signature validation against registered public keys with sub-50ms latency.
@@ -329,6 +328,6 @@ A structured record of engineering projects, architectural initiatives, and syst
 * **Domain & Ecosystem:** Performance Engineering, High-Throughput Stress Simulation, Distributed Load Generation.
 * **Technologies:** Scala, Gatling, Apache Kafka, Async HTTP, Cryptographic Key Generation (`ubirch-crypto`, `ubirch-protocol-java`), Docker.
 * **Key Deliverables & Practical Impact:**
-  * **Large-Scale Distributed Simulation Harness:** Engineered a high-throughput load testing and benchmarking suite using `Gatling` and `Scala` to simulate real-world IoT sensor fleets transmitting millions of cryptographic payloads.
+  * **Large-Scale Distributed Simulation Harness:** Engineered a high-throughput load testing and benchmarking suite using `Gatling` and `Scala` to simulate real-world IoT sensor fleets transmitting thousands of cryptographic payloads.
   * **Automated Device & Key Generation Suite:** Built high-velocity synthetic dataset generators (`DeviceGenerator`, `KeyRegistration`, `DataGenerator`) creating thousands of cryptographic identities, public keys, and signed hash payloads for stress simulations.
   * **Continuous Rate & Peak Benchmark Scenarios:** Developed specialized Gatling simulation models (`SendHashApproxRateSecondsSimulationContinuous`, verification stress tests) benchmarking latency degradation, Kafka ingestion back-pressure, and microservice recovery thresholds under sustained multi-thousand TPS load.
