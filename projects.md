@@ -9,7 +9,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - [Recovery Cat Architecture & Automated Threat Modeling (`rcc-architecture`)](#recovery-cat-architecture--automated-threat-modeling-rcc-architecture)
   - [Recovery Cat Keycloak Extensions & Custom IAM Plugins (`keycloak-plugins`)](#recovery-cat-keycloak-extensions--custom-iam-plugins-keycloak-plugins)
   - [Recovery Cat User Data Storage API (`rcc-user-data-storage-api`)](#recovery-cat-user-data-storage-api-rcc-user-data-storage-api)
-  - [German COVID-19 Digital Vaccination Certificate (`CovPass` / `EU DCC`)](#german-covid-19-digital-vaccination-certificate-covpass--eu-dcc)
+  - [German COVID-19 Digital Vaccination Certificate (`CovPass` & `EU DCC`)](#german-covid-19-digital-vaccination-certificate-covpass--eu-dcc)
 - [2. Distributed Systems, Blockchain & Data Integrity Platforms](#2-distributed-systems-blockchain--data-integrity-platforms)
   - [Ubirch Attestation Platform](#ubirch-attestation-platform)
   - [Ubirch Identity Service (`ubirch-id-service`)](#ubirch-identity-service-ubirch-id-service)
@@ -51,7 +51,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 - **Key Deliverables & Practical Impact**:
   - **SaMD Architecture & Regulatory Threat Modeling**: Owned the end-to-end software architecture and regulatory security posture for an EU MDR 2017/745 certified Class I Medical Device, protecting psychiatric patient data across inpatient and outpatient care pathways deployed in ~20 German hospital networks and psychiatric clinics.
   - **WebRTC Signaling Rebuild**: Rebuilt the real-time WebRTC signaling architecture from the ground up, eliminating peer connection dropouts and 100% of communication support incidents between Healthcare Professionals (HCPs) and patients.
-  - **Patient Data Migration to Backend**: Eliminated critical data loss vulnerabilities inherent to client-side PWA browser caches by building an automated, encrypted backend migration pipeline that preserved full longitudinal clinical histories.
+  - **Patient Data Migration to Backend**: Removed the data-loss risk of keeping patient data only in PWA browser storage by building an automated, encrypted migration of that data to the backend.
   - **IAM Integration (Keycloak)**: Designed and deployed a multi-tenant, custom-branded Keycloak Identity & Access Management (OIDC/OAuth2) infrastructure, migrating unauthenticated PWA endpoints to role-based access control (RBAC) with per-role session policies.
   - **Security Scanning in CI/CD**: Embedded Threagile automated threat modeling and Trivy container scanning directly into GitLab CI/CD pipelines, so every build was threat-checked and scanned for vulnerabilities.
   - **Cross-Browser E2E Testing in CI**: Added end-to-end test runs across multiple browsers to the GitLab CI pipeline, so every change to the patient and clinician PWAs was checked in each supported browser before release.
@@ -59,7 +59,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Release Frequency**: Increased production deployments from 3 to 10 or more per year.
 
 ### Recovery Cat Architecture & Automated Threat Modeling (`rcc-architecture`)
-- **Role & Organization**: Head of Development & Software Architect · Recovery Cat GmbH (Berlin, Germany)
+- **Role & Organization**: Head of Development · Recovery Cat GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Medical Device Security Architecture, STRIDE Threat Modeling, EU MDR 2017/745 & ISO 27001 Compliance, Multi-Cloud Topology.
 - **Technologies**: Threagile (Code-as-Threat-Model, Go/YAML), Docker, GitLab CI/CD, Scaleway Kapsule (Kubernetes), Hetzner Bare Metal & Cloud, Traefik, Keycloak (OIDC), PostgreSQL, WebRTC/STUN, Python.
 - **Key Deliverables & Practical Impact**:
@@ -70,7 +70,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 
 ### Recovery Cat Keycloak Extensions & Custom IAM Plugins (`keycloak-plugins`)
 - **Role & Organization**: Head of Development · Recovery Cat GmbH (Berlin, Germany)
-- **Domain & Ecosystem**: Medical IAM & Identity Federation, Custom Keycloak SPI Extensions, Multi-Realm Healthcare Architecture, German Statutory Health Insurance Integration (§ 290 SGB V).
+- **Domain & Ecosystem**: Medical IAM & Multi-Realm Sync, Custom Keycloak SPI Extensions, Multi-Realm Healthcare Architecture, German Statutory Health Insurance Integration (§ 290 SGB V).
 - **Technologies**: Java 17, Keycloak 26.5 (Quarkus runtime), Keycloak Server SPIs (Authenticator, Event Listener, Validator, custom Provider SPI), Jakarta RESTful Web Services 3.1, JBoss Logging, Lombok, Maven (Shade, Enforcer, Spotless, PMD), JUnit 5, Mockito, Docker, GitLab CI/CD.
 - **Key Deliverables & Practical Impact**:
   - **Client-Driven Role & Group Assignment Authenticator**: Built custom Keycloak authentication flow interceptors that map and validate user groups and role privileges based on the calling OIDC client (clinician app or patient app).
@@ -90,8 +90,8 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **SOUP/SBOM Generator for Audits**: Wrote tooling that extracts Software of Unknown Provenance (SOUP) lists from Gradle dependency trees for IEC 62304 & EU MDR Class I medical device technical file audits and post-market surveillance.
   - **Retry Handling & Usage Metrics**: Integrated SmallRye retry handling for optimistic concurrency and constraint collisions, alongside scheduled Prometheus gauges tracking active patient and clinician counts.
 
-### German COVID-19 Digital Vaccination Certificate (`CovPass` / `EU DCC`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+### German COVID-19 Digital Vaccination Certificate (`CovPass` & `EU DCC`)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: National Public Health Infrastructure, EU Digital COVID Certificate (EU DCC), German Federal Ministry of Health (BMG) consortium partnership with IBM and Bechtle/GovOS.
 - **Technologies**: Scala, Akka (Actors, HTTP, Streams), Apache Kafka, Apache Cassandra, PostgreSQL, Cryptographic Signing (ECDSA/Ed25519), High-Throughput REST APIs.
 - **Key Deliverables & Practical Impact**:
@@ -106,20 +106,20 @@ A structured record of engineering projects, architectural initiatives, and syst
 - **Key Deliverables & Practical Impact**:
   - **Event-Driven Ingestion Pipeline**: Co-developed and maintained the message ingestion microservices (decoding, signature verification, device certificate validation, and high-throughput serialization) handling continuous streams of cryptographic data packets.
   - **Merkle Tree Event Log & Multi-Chain Anchoring**: Built the event log service that aggregates cryptographic hashes into linked Merkle trees and periodically anchors root hashes into public ledgers (Ethereum, IOTA), generating tamper-proof timestamps and verifiable proofs of existence.
-  - **Certificate Storage**: Designed a multi-tier storage layer using Cassandra, JanusGraph, and Redis for sub-second verification and cryptographic lineage tracing across thousands of connected devices.
+  - **Certificate Storage**: Designed a multi-tier storage layer using Cassandra, JanusGraph, and Redis for fast verification and cryptographic lineage tracing across thousands of connected devices.
 
 ### Ubirch Identity Service (`ubirch-id-service`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Public Key Infrastructure (PKI), Decentralized Identity (DID), Cryptographic Key Lifecycle & Device Attestation.
 - **Technologies**: Scala, Monix, Scalatra, Apache Cassandra (Quill), Apache Kafka (Ubirch Kafka Express), Ed25519, ECDSA, X.509 Certificates, Docker, Prometheus.
 - **Key Deliverables & Practical Impact**:
   - **Public Key Service**: Designed and developed the central identity management microservice handling public key registration, verification, and cryptographic lifecycle management for thousands of IoT devices and identity anchors using Monix and Scalatra.
   - **Multi-Algorithm Cryptographic Key Storage**: Built persistence and retrieval pipelines on Apache Cassandra, supporting Ed25519 and ECDSA public key algorithms, certificate chains, and key revocation lists.
   - **Key Lifecycle Events on Kafka**: Integrated bidirectional Apache Kafka event streaming for instant pub/sub notification of key lifecycle transitions (activation, expiration, and invalidation) across all downstream verification services.
-  - **Signature Verification API**: Designed RESTful and streaming verification endpoints enforcing cryptographic signature validation against registered public keys with sub-50ms latency.
+  - **Signature Verification API**: Designed RESTful and streaming verification endpoints enforcing cryptographic signature validation against registered public keys.
 
 ### Ubirch Token Manager (`ubirch-token-manager`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Multi-Tenant Access Control, Scoped Token Delegation, API Security & Authorization Infrastructure.
 - **Technologies**: Scala, Monix, Scalatra, Apache Cassandra (Quill), JWT, SHA-256 Token Hashing, Keycloak OIDC, Docker, Prometheus.
 - **Key Deliverables & Practical Impact**:
@@ -129,7 +129,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Keycloak Integration**: Integrated with the Keycloak IAM, translating user identity contexts and bearer tokens into short-lived service tokens for secure inter-service communication.
 
 ### Ubirch Blockchain Service (`ubirch-blockchain-service`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Distributed Ledger Technology (DLT), Multi-Chain Anchoring, Public Consensus Validation & Proof of Existence.
 - **Technologies**: Scala, Java, IOTA (Native C/JNI & Rust Client), Ethereum/EVM (Web3j), Bloxberg, GovDigital, Apache Kafka, Prometheus.
 - **Key Deliverables & Practical Impact**:
@@ -139,7 +139,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Verifiable Transaction Receipt Pipeline**: Built asynchronous receipt generation and validation pipelines returning immutable blockchain transaction hashes and block numbers to the Ubirch attestation lineage.
 
 ### Ubirch Accounting & Metering Service (`ubirch-accounting-service`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Usage Metering, Multi-Tenant Billing Telemetry, High-Volume Event Accounting & Auditability.
 - **Technologies**: Scala, Monix, Scalatra, Apache Cassandra, PostgreSQL (Flyway), Apache Kafka, Keycloak JWT, Prometheus, Docker.
 - **Key Deliverables & Practical Impact**:
@@ -149,7 +149,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Customer Usage APIs**: Implemented Keycloak OIDC/JWT-authenticated query endpoints allowing enterprise customers to audit, monitor, and export real-time consumption and quota analytics.
 
 ### Ubirch Key Service Migration Pipeline (`ubirch-key-service-migration`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Database Migration, Graph-to-Columnar Schema Translation, Data Modernization.
 - **Technologies**: Scala, Neo4j, Apache HttpClient, JSON4S, CSV Audit Reporting, Docker.
 - **Key Deliverables & Practical Impact**:
@@ -158,9 +158,9 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Migration Audit Reports**: Integrated automated dual-stream reconciliation generating detailed CSV transaction logs and summary reports tracking migrated, updated, and failed key records for regulatory verification.
 
 ### Ubirch Point of Certification Agent (`ubirch-poc-agent`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Edge Certification, Hybrid Cloud/On-Premise Gateway, EU Digital Health Interoperability.
-- **Technologies**: Scala, Monix, Scalatra, STTP, Ubirch Protocol (UPP), EU Digital COVID Certificate (EU DCC / Base45), Bouncy Castle, Prometheus, Docker.
+- **Technologies**: Scala, Monix, Scalatra, STTP, Ubirch Protocol (UPP), EU Digital COVID Certificate (EU DCC & Base45), Bouncy Castle, Prometheus, Docker.
 - **Key Deliverables & Practical Impact**:
   - **On-Premise Certification Agent**: Developed an on-premise and hybrid-cloud certification agent using Scalatra and Monix, acting as a facade that coordinates cryptographic UPP signing and EU DCC health certificate generation.
   - **Local & Remote Signing with Fallback**: Built request distribution pipelines using STTP, multiplexing certification workloads across local UPP signers and remote certification APIs with automated fallback and error buffering.
@@ -228,7 +228,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 - **Technologies**: Stripe API, Payment Gateway Integrations, Sales Automation, Java.
 - **Key Deliverables & Practical Impact**:
   - **Payment Processing**: Built the pluriWow checkout flow, integrating Stripe for automated credit card handling, recurring billing, and multi-currency transactions.
-  - **Order Fulfillment Automation**: Implemented backend sales automation pipelines reducing merchant operational overhead across fulfillment, notifications, and invoicing.
+  - **Order Fulfillment Automation**: Implemented backend sales automation that handled fulfillment, notifications, and invoicing for merchants.
 
 ### Instream Multi-Channel Marketing Automation
 - **Role & Organization**: Senior Software Engineer · pluriME International Inc. (Bahamas / USA), remote from Bogotá, Colombia
@@ -243,7 +243,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 ### Simple S.A. Invoicing & Data Integration Solution
 - **Role & Organization**: Senior Software Engineer Contractor · Iteria (Bogotá, Colombia)
 - **Domain & Ecosystem**: Billing, Electronic Invoicing, Data ETL.
-- **Technologies**: iDempiere, OSGi, Java, SQL, High-Volume Batch ETL.
+- **Technologies**: iDempiere, OSGi, Java, SQL, Batch ETL.
 - **Key Deliverables & Practical Impact**:
   - **Invoicing Plugin**: Developed a decoupled OSGi plugin on iDempiere to automate electronic invoicing and financial data synchronization for Simple S.A.
 
@@ -275,17 +275,17 @@ A structured record of engineering projects, architectural initiatives, and syst
 ## 5. Applied AI & Deep Learning
 
 ### Session Behavioral Anomaly Detection System
-- **Role & Organization**: Independent Engineer · Personal Project (Berlin, Germany)
+- **Role & Organization**: Software Engineer · Personal Project (Berlin, Germany)
 - **Domain & Ecosystem**: Anomaly Detection, Session Behavioral Analytics, IAM & API Gateway Security, Zero-Trust Architecture.
 - **Technologies**: Python, PyTorch, ONNX, Autoencoders, Cyclic Feature Encoding, Dynamic Thresholding.
 - **Key Deliverables & Practical Impact**:
   - **Unsupervised Deep Learning Autoencoder**: Built an unsupervised deep learning anomaly detection architecture trained exclusively on normal behavioral sessions, eliminating dependency on labeled attack datasets.
   - **Symmetric Deep Architecture & Linear Output**: Designed a 5-layer symmetric network (11 input features compressed to a 6-dimensional latent space) with unbounded linear output to maximize reconstruction error penalties on extreme behavioral outliers.
-  - **Feature Preprocessing & Separate User Models**: Implemented sine/cosine cyclic encodings for temporal signals (hour, day of week), logarithmic compression for geolocation distance, and segregated models for standard vs. privileged user workloads.
+  - **Feature Preprocessing & Separate User Models**: Implemented sine/cosine cyclic encodings for temporal signals (hour, day of week), logarithmic compression for geolocation distance, and separate models for standard vs. privileged user workloads.
   - **Explainability & ONNX Export**: Integrated per-feature reconstruction error attribution ranking root-cause anomaly signals for incident review, and exported the models to ONNX so they can run inside JVM services.
 
 ### Interpretable Portfolio Management Workflow (`portafolio-workflow`)
-- **Role & Organization**: Independent Software Architect & Developer · Personal Project
+- **Role & Organization**: Software Engineer · Personal Project (Berlin, Germany)
 - **Domain & Ecosystem**: Personal Wealth Management, Interpretable Context Methodology, Multi-Stage Analytical Pipelines, Financial Auditing & Rebalancing.
 - **Technologies**: Python 3.9+ (standard library only), Yahoo Finance API, CoinGecko API, YAML, Vector SVG Graphics, Markdown Reporting, unittest.
 - **Key Deliverables & Practical Impact**:
@@ -299,18 +299,18 @@ A structured record of engineering projects, architectural initiatives, and syst
 ## 6. Developer Tooling, CI/CD & Deployment Management
 
 ### Cherry Change · Deployment Lifecycle & Release Management Platform
-- **Role & Organization**: Software Architect & Lead Developer · Personal Project
-- **Domain & Ecosystem**: DevOps Tooling, Release Governance, Deployment Lifecycle Tracking & Team Management.
+- **Role & Organization**: Software Engineer · Personal Project (Berlin, Germany)
+- **Domain & Ecosystem**: DevOps Tooling, Release Management, Deployment Lifecycle Tracking & Team Management.
 - **Technologies**: Ruby on Rails, Sidekiq, Redis, PostgreSQL, Docker, Docker Compose, Background Job Processing, Charting & Analytics Dashboards.
 - **Key Deliverables & Practical Impact**:
-  - **Deployment Tracking Across Environments**: Built an automated release governance platform to coordinate and track software deployments across progressive environments (Development, Staging, and Production).
+  - **Deployment Tracking Across Environments**: Built a release management platform to coordinate and track software deployments across progressive environments (Development, Staging, and Production).
   - **Team Coordination & Access Management**: Implemented granular team and resource management capabilities, organizing engineers and system resources with role-specific visibility and execution controls.
-  - **Deployment Frequency Dashboards**: Designed visualization dashboards providing telemetry on deployment frequency, status distributions (daily, weekly), and release health metrics to optimize team delivery cadence.
+  - **Deployment Frequency Dashboards**: Designed visualization dashboards providing telemetry on deployment frequency, status distributions (daily, weekly), and release health metrics, so teams could see how often and how reliably they shipped.
   - **Asynchronous Jobs & Automated Snapshotting**: Integrated Sidekiq and Redis to run background processing for automated system state snapshots, scheduled maintenance tasks, and transactional email alerts.
   - **Docker Setup**: Built Docker and Docker Compose configurations ensuring reproducible, isolated development, staging, and deployment workflows.
 
 ### Ubirch Scala Client SDK (`ubirch-client-scala`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: JVM SDK, Cryptographic Protocol Implementation, Client-Side Data Integrity & Key Resolution.
 - **Technologies**: Scala, Ubirch Protocol Packet (UPP), Ed25519/ECDSA, Skinny HTTP Client, JSON4S, Maven/SBT.
 - **Key Deliverables & Practical Impact**:
@@ -319,8 +319,8 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Dynamic Public Key Resolution**: Built public key provider abstractions with local caching and automated remote key fetching from the Ubirch Identity Service.
 
 ### Ubirch Kafka Service Template (`ubirch-kafka-service-template`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
-- **Domain & Ecosystem**: Microservice Architecture, Event-Driven Streaming Boilerplate, Developer Experience & Accelerators.
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Domain & Ecosystem**: Microservice Architecture, Event-Driven Streaming Boilerplate, Developer Tooling.
 - **Technologies**: Scala, Apache Kafka, Ubirch Kafka Express, Typesafe Config, Prometheus Metrics, Docker, Maven.
 - **Key Deliverables & Practical Impact**:
   - **Service Starter Template**: Created the reference microservice archetype and starter template using Ubirch Kafka Express to speed up new backend streaming service bootstrap across the engineering organization.
@@ -328,7 +328,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Operational Readiness Out of the Box**: Included Docker build specs, JVM graceful shutdown handlers, and Prometheus telemetry endpoints, so every new service started production-ready.
 
 ### ZooKeeper Service Discovery & Leader Election Framework (`zookeeper-service-discovery`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Distributed Coordination, High Availability, Dynamic Cluster Topology & Leader Election.
 - **Technologies**: Java, Scala, Apache ZooKeeper, Apache Curator, Akka HTTP, Monix, Distributed Locks, Maven.
 - **Key Deliverables & Practical Impact**:
@@ -337,10 +337,10 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Decoupled Provider & Consumer Libraries**: Split the framework so services could register as providers or discover dependencies independently, pulling in only the side they needed.
 
 ### Distributed Attestation Load Testing & Simulation Suite (`load-tests-sim`)
-- **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead asSoftware Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Performance Engineering, High-Throughput Stress Simulation, Distributed Load Generation.
 - **Technologies**: Scala, Gatling, Apache Kafka, Async HTTP, Cryptographic Key Generation, Docker.
 - **Key Deliverables & Practical Impact**:
   - **Load Test Suite**: Built a high-throughput load testing and benchmarking suite using Gatling and Scala to simulate real-world IoT sensor fleets transmitting thousands of cryptographic payloads.
   - **Test Data Generation**: Built synthetic dataset generators creating thousands of devices, cryptographic identities, public keys, and signed hash payloads for stress simulations.
-  - **Continuous Rate & Peak Benchmark Scenarios**: Developed Gatling simulation models (continuous-rate sending and verification stress tests) benchmarking latency degradation, Kafka ingestion back-pressure, and microservice recovery thresholds under sustained multi-thousand TPS load.
+  - **Continuous Rate & Peak Benchmark Scenarios**: Developed Gatling simulation models (continuous-rate sending and verification stress tests) benchmarking latency degradation, Kafka ingestion back-pressure, and microservice recovery thresholds under sustained load.
