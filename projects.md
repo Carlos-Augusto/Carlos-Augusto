@@ -40,7 +40,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - [Ubirch Scala Client SDK (`ubirch-client-scala`)](#ubirch-scala-client-sdk-ubirch-client-scala)
   - [Ubirch Kafka Service Template (`ubirch-kafka-service-template`)](#ubirch-kafka-service-template-ubirch-kafka-service-template)
   - [ZooKeeper Service Discovery & Leader Election Framework (`zookeeper-service-discovery`)](#zookeeper-service-discovery--leader-election-framework-zookeeper-service-discovery)
-  - [Distributed Attestation Load Testing & Simulation Engine (`load-tests-sim`)](#distributed-attestation-load-testing--simulation-engine-load-tests-sim)
+  - [Distributed Attestation Load Testing & Simulation Suite (`load-tests-sim`)](#distributed-attestation-load-testing--simulation-suite-load-tests-sim)
 
 ## 1. Digital Health, Medical Devices & Regulated Systems
 
@@ -299,7 +299,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 ## 6. Developer Tooling, CI/CD & Deployment Management
 
 ### Cherry Change · Deployment Lifecycle & Release Management Platform
-- **Role & Organization**: Software Architect & Lead Developer
+- **Role & Organization**: Software Architect & Lead Developer · Personal Project
 - **Domain & Ecosystem**: DevOps Tooling, Release Governance, Deployment Lifecycle Tracking & Team Management.
 - **Technologies**: Ruby on Rails, Sidekiq, Redis, PostgreSQL, Docker, Docker Compose, Background Job Processing, Charting & Analytics Dashboards.
 - **Key Deliverables & Practical Impact**:
@@ -336,7 +336,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Distributed Leader Election**: Implemented leader election recipes enabling distributed worker clusters to dynamically elect leader instances for singleton job coordination and to hand over leadership automatically upon node failure.
   - **Decoupled Provider & Consumer Libraries**: Split the framework so services could register as providers or discover dependencies independently, pulling in only the side they needed.
 
-### Distributed Attestation Load Testing & Simulation Engine (`load-tests-sim`)
+### Distributed Attestation Load Testing & Simulation Suite (`load-tests-sim`)
 - **Role & Organization**: Lead & Senior Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Performance Engineering, High-Throughput Stress Simulation, Distributed Load Generation.
 - **Technologies**: Scala, Gatling, Apache Kafka, Async HTTP, Cryptographic Key Generation, Docker.
