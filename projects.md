@@ -53,10 +53,13 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **WebRTC Signaling Rebuild**: Rebuilt the real-time WebRTC signaling architecture from the ground up, eliminating peer connection dropouts and 100% of communication support incidents between Healthcare Professionals (HCPs) and patients.
   - **Patient Data Migration to Backend**: Removed the data-loss risk of keeping patient data only in PWA browser storage by building an automated, encrypted migration of that data to the backend.
   - **IAM Integration (Keycloak)**: Designed and deployed a multi-tenant, custom-branded Keycloak Identity & Access Management (OIDC/OAuth2) infrastructure, migrating unauthenticated PWA endpoints to role-based access control (RBAC) with per-role session policies.
-  - **Security Scanning in CI/CD**: Embedded Threagile automated threat modeling and Trivy container scanning directly into GitLab CI/CD pipelines, so every build was threat-checked and scanned for vulnerabilities.
+  - **Security Scanning & Checks in CI/CD**: Set up the GitLab CI/CD pipelines to run Trivy container scans, unit and end-to-end tests, and architecture checks on every build.
   - **Cross-Browser E2E Testing in CI**: Added end-to-end test runs across multiple browsers to the GitLab CI pipeline, so every change to the patient and clinician PWAs was checked in each supported browser before release.
   - **Unit Test Coverage**: Raised unit test coverage from 10% to between 71% and 90%, depending on the project.
   - **Release Frequency**: Increased production deployments from 3 to 10 or more per year.
+  - **Code Reviews & Definition of Done**: Made code reviews mandatory for every change and introduced a Definition of Done for the team.
+  - **Kubernetes Provider Migration**: Moved the Kubernetes workloads to a new provider without data loss.
+  - **Team Mentoring**: Mentored the developers on the team.
 
 ### Recovery Cat Architecture & Automated Threat Modeling (`rcc-architecture`)
 - **Role & Organization**: Head of Development · Recovery Cat GmbH (Berlin, Germany)
@@ -64,7 +67,7 @@ A structured record of engineering projects, architectural initiatives, and syst
 - **Technologies**: Threagile (Code-as-Threat-Model, Go/YAML), Docker, GitLab CI/CD, Scaleway Kapsule (Kubernetes), Hetzner Bare Metal & Cloud, Traefik, Keycloak (OIDC), PostgreSQL, WebRTC/STUN, Python.
 - **Key Deliverables & Practical Impact**:
   - **Executable Threat Model & Architecture-as-Code**: Wrote and maintained the code-driven architecture specification and threat model, mapping 34 technical assets, 16 data assets, 13 trust boundaries, and 44 communication links, with risk reports and data flow diagrams generated automatically for compliance.
-  - **Infrastructure-Based Risk Modeling in CI/CD**: Modeled 300 STRIDE/ASVS security risks against the infrastructure actually built, and ran containerized Threagile in the GitLab CI pipelines. This gave the team an organized process to assess, prioritize, and track each risk, and caught security regressions during continuous delivery.
+  - **Infrastructure-Based Risk Modeling**: Modeled 300 STRIDE/ASVS security risks against the infrastructure actually built, kept as a threat model separate from the CI pipelines. This gave the team an organized process to assess, prioritize, and track each risk.
   - **Multi-Cloud Infrastructure**: Designed and built the operational deployment topology spanning Scaleway Kapsule Kubernetes (production apps, monitoring, and Flux GitOps), dedicated managed PostgreSQL clusters, Hetzner VM infrastructure (STUN signaling, GitLab CI runners), and Jointech Bare Metal hosts (Zammad, Matomo).
   - **Client-Side Data Isolation & Signaling**: Designed and built the client-side data isolation model featuring browser-local patient storage, QR-code AES cryptographic negotiation, and hybrid WebRTC DataChannel transmission with WebSocket fallback, which together prevent unauthorized access to psychiatric records.
 
@@ -107,6 +110,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Event-Driven Ingestion Pipeline**: Co-developed and maintained the message ingestion microservices (decoding, signature verification, device certificate validation, and high-throughput serialization) handling continuous streams of cryptographic data packets.
   - **Merkle Tree Event Log & Multi-Chain Anchoring**: Built the event log service that aggregates cryptographic hashes into linked Merkle trees and periodically anchors root hashes into public ledgers (Ethereum, IOTA), generating tamper-proof timestamps and verifiable proofs of existence.
   - **Certificate Storage**: Designed a multi-tier storage layer using Cassandra, JanusGraph, and Redis for fast verification and cryptographic lineage tracing across thousands of connected devices.
+  - **Team Mentoring**: Mentored the developers on the team.
 
 ### Ubirch Identity Service (`ubirch-id-service`)
 - **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
@@ -221,6 +225,7 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Site Builder**: Developed core platform modules enabling non-technical users to build, customize, and publish digital storefronts, portfolios, and custom domains in minutes.
   - **Store Modules**: Built full-lifecycle business modules including dynamic product catalogs, inventory management, automated invoicing, and shopping cart checkouts.
   - **API Tier & Rate Limiting**: Built scalable REST APIs and rate-limiting/throttling subsystems to keep the backend stable during traffic spikes.
+  - **Team Mentoring**: Mentored the developers on the team.
 
 ### pluriWow E-Commerce & Checkout Suite
 - **Role & Organization**: Senior Software Engineer · pluriME International Inc. (Bahamas / USA), remote from Bogotá, Colombia
@@ -337,10 +342,11 @@ A structured record of engineering projects, architectural initiatives, and syst
   - **Decoupled Provider & Consumer Libraries**: Split the framework so services could register as providers or discover dependencies independently, pulling in only the side they needed.
 
 ### Distributed Attestation Load Testing & Simulation Suite (`load-tests-sim`)
-- **Role & Organization**: Senior, later Lead asSoftware Engineer · Ubirch GmbH (Berlin, Germany)
+- **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Performance Engineering, High-Throughput Stress Simulation, Distributed Load Generation.
 - **Technologies**: Scala, Gatling, Apache Kafka, Async HTTP, Cryptographic Key Generation, Docker.
 - **Key Deliverables & Practical Impact**:
   - **Load Test Suite**: Built a high-throughput load testing and benchmarking suite using Gatling and Scala to simulate real-world IoT sensor fleets transmitting thousands of cryptographic payloads.
   - **Test Data Generation**: Built synthetic dataset generators creating thousands of devices, cryptographic identities, public keys, and signed hash payloads for stress simulations.
   - **Continuous Rate & Peak Benchmark Scenarios**: Developed Gatling simulation models (continuous-rate sending and verification stress tests) benchmarking latency degradation, Kafka ingestion back-pressure, and microservice recovery thresholds under sustained load.
+  - **JVM Production Diagnostics**: Used load-test findings and production telemetry (Prometheus, heap/thread dumps) to diagnose concurrency contention, memory pressure, and GC behavior in the ingestion and verification services.
