@@ -47,12 +47,12 @@ A structured record of engineering projects, architectural initiatives, and syst
 ### Recovery Cat · EU MDR Certified Class I Medical Device Platform
 - **Role & Organization**: Head of Development · Recovery Cat GmbH (Berlin, Germany), later acquired by Resilience Care
 - **Domain & Ecosystem**: Digital Mental Health, Measurement-Based Care (MBC), Remote Patient Monitoring (RPM), Charité – Universitätsmedizin Berlin spin-off, Berlin Institute of Health (BIH) Digital Health Accelerator, Techniker Krankenkasse (TK) statutory reimbursement contract.
-- **Technologies**: EU MDR 2017/745 (Class I SaMD), WebRTC, Keycloak (OIDC/OAuth2), Progressive Web Apps (PWA), Docker, GitLab CI/CD, Threagile (Threat Modeling), Trivy (Vulnerability Scanning), Cross-Browser E2E Testing, Scrum.
+- **Technologies**: EU MDR 2017/745 (Class I SaMD), Scala, WebRTC, Keycloak (OIDC/OAuth2), Progressive Web Apps (PWA), Docker, GitLab CI/CD, Threagile (Threat Modeling), Trivy (Vulnerability Scanning), Cross-Browser E2E Testing, Scrum.
 - **Key Deliverables & Practical Impact**:
   - **SaMD Architecture & Regulatory Threat Modeling**: Owned the end-to-end software architecture and regulatory security posture for an EU MDR 2017/745 certified Class I Medical Device, protecting psychiatric patient data across inpatient and outpatient care pathways deployed in ~20 German hospital networks and psychiatric clinics.
-  - **WebRTC Signaling Rebuild**: Rebuilt the real-time WebRTC signaling architecture from the ground up, eliminating peer connection dropouts and 100% of communication support incidents between Healthcare Professionals (HCPs) and patients.
-  - **Patient Data Migration to Backend**: Removed the data-loss risk of keeping patient data only in PWA browser storage by building an automated, encrypted migration of that data to the backend.
-  - **IAM Integration (Keycloak)**: Designed and deployed a multi-tenant, custom-branded Keycloak Identity & Access Management (OIDC/OAuth2) infrastructure, migrating unauthenticated PWA endpoints to role-based access control (RBAC) with per-role session policies.
+  - **WebRTC Signaling Rebuild**: Rebuilt the real-time WebRTC signaling service from the ground up, replacing the original JavaScript implementation with a modern, secure Scala backend. Patient information now transferred reliably between the clinician and patient apps, and support tickets about transfer problems stopped completely.
+  - **Patient Data Migration to Backend**: Moved patient data from PWA browser storage to the backend through an automated, encrypted migration. This resolved the data-loss issues and let patients use the app on other devices, for example after changing phones.
+  - **IAM Integration (Keycloak)**: Evaluated Keycloak against SaaS identity providers and chose it for data sovereignty and GDPR compliance with health data. Designed and deployed a multi-tenant, custom-branded Keycloak Identity & Access Management (OIDC/OAuth2) infrastructure, migrating unauthenticated PWA endpoints to role-based access control (RBAC) with per-role session policies.
   - **Security Scanning & Checks in CI/CD**: Set up the GitLab CI/CD pipelines to run Trivy container scans, unit and end-to-end tests, and architecture checks on every build.
   - **Cross-Browser E2E Testing in CI**: Added end-to-end test runs across multiple browsers to the GitLab CI pipeline, so every change to the patient and clinician PWAs was checked in each supported browser before release.
   - **Unit Test Coverage**: Raised unit test coverage from 10% to between 71% and 90%, depending on the project.
@@ -63,13 +63,14 @@ A structured record of engineering projects, architectural initiatives, and syst
 
 ### Recovery Cat Architecture & Automated Threat Modeling (`rcc-architecture`)
 - **Role & Organization**: Head of Development · Recovery Cat GmbH (Berlin, Germany)
-- **Domain & Ecosystem**: Medical Device Security Architecture, STRIDE Threat Modeling, EU MDR 2017/745 & ISO 27001 Compliance, Multi-Cloud Topology.
+- **Domain & Ecosystem**: Medical Device Security Architecture, STRIDE Threat Modeling, EU MDR 2017/745.
 - **Technologies**: Threagile (Code-as-Threat-Model, Go/YAML), Docker, GitLab CI/CD, Scaleway Kapsule (Kubernetes), Hetzner Bare Metal & Cloud, Traefik, Keycloak (OIDC), PostgreSQL, WebRTC/STUN, Python.
 - **Key Deliverables & Practical Impact**:
   - **Executable Threat Model & Architecture-as-Code**: Wrote and maintained the code-driven architecture specification and threat model, mapping 34 technical assets, 16 data assets, 13 trust boundaries, and 44 communication links, with risk reports and data flow diagrams generated automatically for compliance.
   - **Infrastructure-Based Risk Modeling**: Modeled 300 STRIDE/ASVS security risks against the infrastructure actually built, kept as a threat model separate from the CI pipelines. This gave the team an organized process to assess, prioritize, and track each risk.
+  - **Cloud Provider Evaluation**: Evaluated Scaleway, OVH, AWS, and Hetzner against technical, legal, and organizational requirements as the basis for selecting the cloud providers.
   - **Multi-Cloud Infrastructure**: Designed and built the operational deployment topology spanning Scaleway Kapsule Kubernetes (production apps, monitoring, and Flux GitOps), dedicated managed PostgreSQL clusters, Hetzner VM infrastructure (STUN signaling, GitLab CI runners), and Jointech Bare Metal hosts (Zammad, Matomo).
-  - **Client-Side Data Isolation & Signaling**: Designed and built the client-side data isolation model featuring browser-local patient storage, QR-code AES cryptographic negotiation, and hybrid WebRTC DataChannel transmission with WebSocket fallback, which together prevent unauthorized access to psychiatric records.
+  - **From Local-Only Data to Accounts & Backend Storage**: Took over the first version of the apps, built by another developer, which had no user accounts and kept all patient data in the browser. Developed the client and backend components for user accounts and secure remote storage, moving the apps from local-only storage without accounts to authenticated accounts with backend storage. This resolved the data-loss issues and made multi-device use possible.
 
 ### Recovery Cat Keycloak Extensions & Custom IAM Plugins (`keycloak-plugins`)
 - **Role & Organization**: Head of Development · Recovery Cat GmbH (Berlin, Germany)
@@ -99,16 +100,17 @@ A structured record of engineering projects, architectural initiatives, and syst
 - **Technologies**: Scala, Akka (Actors, HTTP, Streams), Apache Kafka, Apache Cassandra, PostgreSQL, Cryptographic Signing (ECDSA/Ed25519), High-Throughput REST APIs.
 - **Key Deliverables & Practical Impact**:
   - **National Vaccination Certificate Backend**: Delivered core backend streaming and signing components for the official German Vaccination Proof (*Digitales Impfzertifikat*), integrating thousands of pharmacies (DAV), vaccination centers, and medical practices into the EU DCC trust gateway. More than 250 million certificates were issued.
+  - **BSI Security Review**: Components underwent security review by the BSI (German Federal Office for Information Security).
 
 ## 2. Distributed Systems, Blockchain & Data Integrity Platforms
 
 ### Ubirch Attestation Platform
 - **Role & Organization**: Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Cryptographic Data Integrity, IoT & Sensor Attestation, Distributed Ledger Anchoring.
-- **Technologies**: Scala, Java, Apache Kafka, Apache Cassandra, PostgreSQL, Redis, JanusGraph, Merkle Tree Aggregations, Blockchain Anchoring (IOTA, Ethereum, Polygon).
+- **Technologies**: Scala, Java, Apache Kafka, Apache Cassandra, PostgreSQL, Redis, JanusGraph, Merkle Tree Aggregations, Blockchain Anchoring (IOTA, Ethereum incl. Bloxberg & GovDigital, Polygon).
 - **Key Deliverables & Practical Impact**:
   - **Event-Driven Ingestion Pipeline**: Co-developed and maintained the message ingestion microservices (decoding, signature verification, device certificate validation, and high-throughput serialization) handling continuous streams of cryptographic data packets.
-  - **Merkle Tree Event Log & Multi-Chain Anchoring**: Built the event log service that aggregates cryptographic hashes into linked Merkle trees and periodically anchors root hashes into public ledgers (Ethereum, IOTA), generating tamper-proof timestamps and verifiable proofs of existence.
+  - **Merkle Tree Event Log & Multi-Chain Anchoring**: Built the event log service that aggregates cryptographic hashes into linked Merkle trees and periodically anchors root hashes into public ledgers (IOTA, Ethereum, Polygon), generating tamper-proof timestamps and verifiable proofs of existence.
   - **Certificate Storage**: Designed a multi-tier storage layer using Cassandra, JanusGraph, and Redis for fast verification and cryptographic lineage tracing across thousands of connected devices.
   - **Team Mentoring**: Mentored the developers on the team.
 
@@ -135,9 +137,9 @@ A structured record of engineering projects, architectural initiatives, and syst
 ### Ubirch Blockchain Service (`ubirch-blockchain-service`)
 - **Role & Organization**: Senior, later Lead Software Engineer · Ubirch GmbH (Berlin, Germany)
 - **Domain & Ecosystem**: Distributed Ledger Technology (DLT), Multi-Chain Anchoring, Public Consensus Validation & Proof of Existence.
-- **Technologies**: Scala, Java, IOTA (Native C/JNI & Rust Client), Ethereum/EVM (Web3j), Bloxberg, GovDigital, Apache Kafka, Prometheus.
+- **Technologies**: Scala, Java, IOTA (Native C/JNI & Rust Client), Ethereum/EVM (Web3j) incl. Bloxberg & GovDigital, Polygon, Apache Kafka, Prometheus.
 - **Key Deliverables & Practical Impact**:
-  - **Multi-Chain Anchoring Service**: Developed a multi-chain ledger dispatching microservice that consumes aggregated Merkle tree root hashes from Kafka and asynchronously commits cryptographic anchors across public and consortium networks (Ethereum, IOTA, Bloxberg, GovDigital).
+  - **Multi-Chain Anchoring Service**: Developed a multi-chain ledger dispatching microservice that consumes aggregated Merkle tree root hashes from Kafka and asynchronously commits cryptographic anchors to IOTA, Ethereum, and Polygon, plus Ethereum-based networks such as Bloxberg and GovDigital. The set of supported chains changed over time.
   - **Native IOTA Bindings (JNI)**: Built native JVM-to-C/Rust JNI bindings for the IOTA client library, optimizing transaction payload serialization, tip selection, and proof-of-work delegation under high message volume.
   - **Dynamic Gas Management & Balance Telemetry**: Implemented automated gas price estimation, wallet balance monitors, and Prometheus alerting to keep transactions going out during network congestion.
   - **Verifiable Transaction Receipt Pipeline**: Built asynchronous receipt generation and validation pipelines returning immutable blockchain transaction hashes and block numbers to the Ubirch attestation lineage.
